@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EquiLens AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="container">
+    <h1 class="title">Equi<span>Lens</span></h1>
+    <p class="subtitle">Futuristic Political Bias Intelligence</p>
+
+    <form method="post" action="/analyze" class="input-panel">
+        <input type="url" name="url" placeholder="Paste article link..." required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if error %}
+        <div class="error-box">❌ {{ error }}</div>
+    {% endif %}
+
+    {% if summary %}
+    <div class="glass-card">
+        <h2>Neural Summary</h2>
+        <p>{{ summary }}</p>
+    </div>
+    {% endif %}
+
+    {% if left_pct is defined %}
+    <div class="glass-card">
+        <h2>Bias Matrix</h2>
+
+        <div class="bias-row">
+            <span>LEFT</span>
+            <div class="bar">
+                <div class="fill left" data-width="{{ left_pct }}"></div>
+            </div>
+            <span>{{ left_pct }}%</span>
+        </div>
+
+        <div class="bias-row">
+            <span>CENTER</span>
+            <div class="bar">
+                <div class="fill center" data-width="{{ center_pct }}"></div>
+            </div>
+            <span>{{ center_pct }}%</span>
+        </div>
+
+        <div class="bias-row">
+            <span>RIGHT</span>
+            <div class="bar">
+                <div class="fill right" data-width="{{ right_pct }}"></div>
+            </div>
+            <span>{{ right_pct }}%</span>
+        </div>
+
+        {% if top_signal %}
+        <p class="signal">
+            Dominant Signal: <strong>{{ top_signal }}</strong>
+        </p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if essay %}
+    <div class="glass-card">
+        <h2>AI Reasoning Core</h2>
+        <p class="essay">{{ essay }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    document.querySelectorAll('.fill').forEach(bar => {
+        const value = bar.getAttribute('data-width');
+        if (value !== null) {
+            bar.style.width = value + '%';
+        }
+    });
+</script>
+
+</body>
+</html>

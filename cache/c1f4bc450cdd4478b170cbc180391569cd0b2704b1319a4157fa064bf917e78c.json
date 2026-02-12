@@ -1,0 +1,18 @@
+{
+  "summary": "President Donald Trump texted Norwegian Prime Minister Jonas Gahr St\u00f8re that he no longer feels obligated to think \"purely of peace\" Trump argued the United States must have \"complete and total control\" of Greenland. The 2025 Nobel Peace Prize was awarded to Venezuelan opposition leader Maria Corina Machado, but she offered the prize to Trump in a White House meeting Thursday. \"I have done more for NATO than any other person since its founding, and now, NATO should do something for the U.S,\" Trump wrote.",
+  "bias_scores": {
+    "Left": 0.3497,
+    "Center": 0.2684,
+    "Right": 0.3819
+  },
+  "signals": {
+    "Emotionally charged argument": 0.5969,
+    "Balanced discussion": 0.2356,
+    "Progressive political framing": 0.0599,
+    "Policy advocacy": 0.0568,
+    "Conservative political framing": 0.0406,
+    "Neutral factual reporting": 0.0101
+  },
+  "top_signal": "Emotionally charged argument",
+  "essay": "unsafe\nSunsafe"
+}

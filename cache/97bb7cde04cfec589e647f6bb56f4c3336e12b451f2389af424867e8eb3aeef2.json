@@ -1,0 +1,10 @@
+{
+  "summary": "Andy Khawaja, a Lebanese immigrant, founded Allied Wallet and became a billionaire through his business success. He was recognized by politicians, including California Lt. Gov. Gavin Newsom and Los Angeles Mayor Eric Garcetti. Khawaja initially supported Clinton but later backed Trump, donating to his inauguration and other Republican organizations. He was appointed to the U.S. Commission on International Religious Freedom but was later indicted on campaign finance violations due to his association with George Nader.",
+  "bias_scores": {
+    "Left": 0.3,
+    "Center": 0.2,
+    "Right": 0.5
+  },
+  "top_signal": "Politics",
+  "essay": "Andy Khawaja's story epitomizes the American Dream. He immigrated to the U.S. from Lebanon, earned citizenship, and founded Allied Wallet, growing it into an international powerhouse. Khawaja was celebrated by politicians across the aisle, but his political leanings shifted to the right, leading him to support Trump. He donated to Trump's inauguration and other Republican organizations. Despite his success and recognition, Khawaja was indicted on campaign finance violations due to his association with George Nader. The indictment claimed Khawaja used Nader as a conduit for illegal campaign contributions. Khawaja's case highlights the complexities of politics and the impact of associations on one's reputation."
+}

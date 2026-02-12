@@ -1,0 +1,10 @@
+{
+  "summary": "Geraldo Lunas Campos, a 55-year-old Cuban immigrant, died in ICE custody at a Texas detention facility. The autopsy report ruled his death a homicide due to asphyxia from neck and torso compression. Campos was detained in July during an immigration enforcement action in New York and had prior convictions. The DHS stated that Campos experienced medical distress after becoming disruptive while in line for medication. The family's attorneys filed an emergency petition to prevent alleged witnesses from being deported.",
+  "bias_scores": {
+    "Left": 0.4,
+    "Center": 0.3,
+    "Right": 0.3
+  },
+  "top_signal": "ICE custody death ruled homicide",
+  "essay": "The death of Geraldo Lunas Campos in ICE custody has been ruled a homicide. Campos, a 55-year-old Cuban immigrant, died on January 3 at Camp East Montana, a Texas immigration detention facility. The autopsy report determined that Campos died from asphyxia due to neck and torso compression. The DHS stated that Campos experienced medical distress after becoming disruptive. The family's attorneys have filed an emergency petition to prevent alleged witnesses from being deported. The petition cites reports alleging that guards at the facility choked and asphyxiated Campos. Campos is the third detainee to die at East Camp Montana."
+}

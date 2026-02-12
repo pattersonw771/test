@@ -1,0 +1,10 @@
+{
+  "summary": "Rep. Ilhan Omar was attacked during a town hall in Minneapolis by a man who allegedly sprayed her with an unknown chemical substance. The suspect, Anthony James Kazmierczak, has a criminal record, including convictions for driving while intoxicated. Omar continued the town hall despite the incident, stating 'Please don't let them have the show.' Kazmierczak was charged with third-degree assault and booked at the Hennepin County Jail. The incident has raised concerns about the safety of public officials.",
+  "bias_scores": {
+    "Left": 0.116,
+    "Center": 0.558,
+    "Right": 0.326
+  },
+  "top_signal": "The article's language and tone suggest a neutral to slightly right-leaning bias, given its source is Fox News.",
+  "essay": "The article reports on an incident where Rep. Ilhan Omar was attacked during a town hall meeting. The attacker, identified as Anthony James Kazmierczak, allegedly used an unknown chemical spray. Kazmierczak has a prior criminal record, including DWI convictions. Despite the incident, Omar chose to continue the town hall, urging attendees not to be deterred. The article provides a factual account of the event, including details about Kazmierczak's criminal history and the charges brought against him."
+}

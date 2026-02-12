@@ -1,0 +1,10 @@
+{
+  "summary": "The given output is not valid JSON",
+  "bias_scores": {
+    "Left": 0.0,
+    "Center": 0.0,
+    "Right": 0.0
+  },
+  "top_signal": "Invalid JSON",
+  "essay": "unsafe Ssafe"
+}

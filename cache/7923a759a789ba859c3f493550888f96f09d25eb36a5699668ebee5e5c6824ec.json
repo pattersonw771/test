@@ -1,0 +1,18 @@
+{
+  "summary": "The Florida Freedom Fund, a 527 tax-exempt organization, is directly selling access to both Florida Governor Ron DeSantis and Florida First Lady Casey deSantis. The organization has a stated mission of \u201cpromoting and supporting principled conservative causes and candidates in the State of Florida.\u201d It was heavily utilized in the 2024 Election in order to stop Amendment Three, which would have legalized recreational marijuana in the state. The Florida Attorney General\u2019s fingerprints are all over the corruption of Florida\u2019S First family.",
+  "bias_scores": {
+    "Left": 0.1033,
+    "Center": 0.1487,
+    "Right": 0.748
+  },
+  "signals": {
+    "Conservative political framing": 0.6924,
+    "Balanced discussion": 0.1265,
+    "Emotionally charged argument": 0.1011,
+    "Policy advocacy": 0.0477,
+    "Neutral factual reporting": 0.0192,
+    "Progressive political framing": 0.0131
+  },
+  "top_signal": "Conservative political framing",
+  "essay": "unsafe\nSunsafe"
+}
