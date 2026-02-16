@@ -1,0 +1,10 @@
+{
+  "summary": "The Department of Homeland Security (DHS) has shut down due to a lack of funding, with Democrats and Republicans unable to agree on a package. The shutdown will impact various agencies, including the Transportation Security Agency, whose employees are working without pay. The House and Senate are out for the week, making a speedy resolution unlikely. The Munich Security Conference recently ended, with lawmakers returning to the US. The shutdown contingency plan exempts over 95% of TSA employees, who will remain on board without pay. The funding lapse has significant implications for national security and emergency response.",
+  "essay": "The current shutdown of the Department of Homeland Security is a result of the ongoing funding dispute between Democrats and Republicans. The lack of agreement on a funding package has significant implications for national security, emergency response, and immigration operations. The Transportation Security Agency, in particular, is affected, with employees working without pay. The exemption of over 95% of TSA employees under the shutdown contingency plan is a crucial aspect of maintaining security during this period. The shutdown also highlights the need for bipartisan cooperation to address the underlying issues. Furthermore, the recent Munich Security Conference and the ongoing Olympics in Milan serve as a reminder of the global context in which these domestic issues are unfolding. Ultimately, a resolution to the funding lapse is necessary to ensure the continued functioning of critical agencies and services.",
+  "top_signal": "DHS shutdown",
+  "bias_scores": {
+    "Left": 0.4,
+    "Center": 0.3,
+    "Right": 0.3
+  }
+}

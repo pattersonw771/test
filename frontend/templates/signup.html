@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - EquiLens</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=20260216-editorial-9">
+</head>
+<body class="theme-newsroom">
+    <main class="page">
+        <header class="masthead">
+            <h1>Create Account</h1>
+            <p class="tagline">Save history across devices and track your analysis feedback.</p>
+        </header>
+        <section class="results-grid">
+            <article class="card rationale-card" style="padding:18px;">
+                <form method="post" action="/signup" class="input-panel">
+                    <label class="label" for="email">Email</label>
+                    <div class="input-stack">
+                        <input id="email" name="email" type="email" required value="{{ email or '' }}">
+                    </div>
+
+                    <label class="label" for="password" style="margin-top:10px;">Password (8+ chars)</label>
+                    <div class="input-stack">
+                        <input id="password" name="password" type="password" minlength="8" required>
+                    </div>
+
+                    <div class="theme-options" style="margin-top:12px;">
+                        <button type="submit" class="theme-chip is-active">Create account</button>
+                        <a href="/login" class="theme-chip">Log in</a>
+                    </div>
+                </form>
+                {% if error %}
+                <div class="error-box">{{ error }}</div>
+                {% endif %}
+                <p class="input-link" style="margin-top:12px;"><a href="/">Back to home</a></p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

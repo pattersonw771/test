@@ -1,6 +1,12 @@
-fastapi
+﻿fastapi
 uvicorn
+gunicorn
 requests
 beautifulsoup4
-transformers
-torch
+groq
+python-dotenv
+jinja2
+python-multipart
+urllib3
+sqlalchemy
+psycopg[binary]

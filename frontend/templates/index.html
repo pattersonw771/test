@@ -1,87 +1,190 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EquiLens AI</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiLens Journal</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=20260216-editorial-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-newsroom">
+    <div class="paper-grain" aria-hidden="true"></div>
 
-<div class="bg-grid"></div>
+    <main class="page">
+        <header class="masthead">
+            <p class="edition">Edition: Bias Desk</p>
+            <h1>EquiLens Journal</h1>
+            <p class="tagline">A newsroom-style readout for political framing and narrative balance.</p>
+            <p class="tagline">Methodology matters: check extraction metadata, submit feedback, and review limitations.</p>
+            <p class="input-link">
+                {% if current_user %}
+                Signed in as <strong>{{ current_user.email }}</strong>
+                <form method="post" action="/logout" style="display:inline;">
+                    <button class="theme-chip" type="submit">Log out</button>
+                </form>
+                {% else %}
+                <a href="/login">Log in</a> | <a href="/signup">Create account</a>
+                {% endif %}
+            </p>
+        </header>
 
-<div class="container">
-    <h1 class="title">Equi<span>Lens</span></h1>
-    <p class="subtitle">Futuristic Political Bias Intelligence</p>
+        <section class="lead-row">
+            <article class="card filing-card">
+                <h2>File New Article</h2>
+                <p>Paste a direct news article, YouTube video, or X/Twitter post URL.</p>
 
-    <form method="post" action="/analyze" class="input-panel">
-        <input type="url" name="url" placeholder="Paste article link..." required>
-        <button type="submit">Analyze</button>
-    </form>
+                <form method="post" action="/analyze" class="input-panel" id="analyze-form">
+                    <label for="article-url" class="label">URL</label>
+                    <div class="input-stack">
+                        <input id="article-url" type="url" name="url" placeholder="https://example.com/article" required>
+                        <button type="submit" id="analyze-button">Analyze Story</button>
+                    </div>
+                </form>
 
-    {% if error %}
-        <div class="error-box">❌ {{ error }}</div>
-    {% endif %}
+                <div class="theme-switcher" aria-label="Theme selector">
+                    <p class="theme-title">Viewer Theme</p>
+                    <div class="theme-options">
+                        <button type="button" class="theme-chip is-active" data-theme-btn="theme-newsroom">Newsroom Desk</button>
+                        <button type="button" class="theme-chip" data-theme-btn="theme-city">City Briefing</button>
+                        <button type="button" class="theme-chip" data-theme-btn="theme-monochrome">Print Mono</button>
+                        <button type="button" class="theme-chip" data-theme-btn="theme-dark">Dark Desk</button>
+                    </div>
+                    {% if input_link %}
+                    <p class="input-link"><strong>Input link:</strong> <span>{{ input_link }}</span></p>
+                    {% endif %}
+                </div>
 
-    {% if summary %}
-    <div class="glass-card">
-        <h2>Neural Summary</h2>
-        <p>{{ summary }}</p>
-    </div>
-    {% endif %}
+                {% if error %}
+                    <div class="error-box">{{ error }}</div>
+                {% endif %}
+            </article>
 
-    {% if left_pct is defined %}
-    <div class="glass-card">
-        <h2>Bias Matrix</h2>
+            <aside class="card photo-card">
+                <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80" alt="Newsroom desk with printed papers and notes">
+                <div class="photo-caption">
+                    <strong>Multi-Source Input</strong>
+                    <span>News pages, YouTube videos, and social posts with fallback extraction.</span>
+                </div>
+            </aside>
+        </section>
 
-        <div class="bias-row">
-            <span>LEFT</span>
-            <div class="bar">
-                <div class="fill left" data-width="{{ left_pct }}"></div>
-            </div>
-            <span>{{ left_pct }}%</span>
-        </div>
+        {% if summary %}
+        <section class="results-grid">
+            <article class="card reveal summary-card">
+                <h2>Lead Summary</h2>
+                <p>{{ summary }}</p>
+            </article>
 
-        <div class="bias-row">
-            <span>CENTER</span>
-            <div class="bar">
-                <div class="fill center" data-width="{{ center_pct }}"></div>
-            </div>
-            <span>{{ center_pct }}%</span>
-        </div>
+            {% if left_pct is defined %}
+            <article class="card reveal bias-card">
+                <h2>Bias Ledger</h2>
 
-        <div class="bias-row">
-            <span>RIGHT</span>
-            <div class="bar">
-                <div class="fill right" data-width="{{ right_pct }}"></div>
-            </div>
-            <span>{{ right_pct }}%</span>
-        </div>
+                <div class="bias-row">
+                    <span>Left</span>
+                    <div class="bar">
+                        <div class="fill left" data-width="{{ left_pct }}"></div>
+                    </div>
+                    <span>{{ left_pct }}%</span>
+                </div>
 
-        {% if top_signal %}
-        <p class="signal">
-            Dominant Signal: <strong>{{ top_signal }}</strong>
-        </p>
+                <div class="bias-row">
+                    <span>Center</span>
+                    <div class="bar">
+                        <div class="fill center" data-width="{{ center_pct }}"></div>
+                    </div>
+                    <span>{{ center_pct }}%</span>
+                </div>
+
+                <div class="bias-row">
+                    <span>Right</span>
+                    <div class="bar">
+                        <div class="fill right" data-width="{{ right_pct }}"></div>
+                    </div>
+                    <span>{{ right_pct }}%</span>
+                </div>
+
+                {% if top_signal %}
+                <p class="signal">Dominant signal: <strong>{{ top_signal }}</strong></p>
+                {% endif %}
+            </article>
+            {% endif %}
+
+            {% if extraction_kind %}
+            <article class="card reveal bias-card">
+                <h2>Transparency</h2>
+                <p><strong>Source class:</strong> {{ source }}</p>
+                <p><strong>Extraction type:</strong> {{ extraction_kind }}</p>
+                <p><strong>Extracted length:</strong> {{ extracted_chars }} chars</p>
+                <p><strong>Processing time:</strong> {{ duration_ms }} ms</p>
+            </article>
+            {% endif %}
+
+            {% if global_perspective %}
+            <article class="card reveal rationale-card">
+                <h2>Global Perspective</h2>
+                <p class="essay">{{ global_perspective }}</p>
+            </article>
+            {% endif %}
+
+            {% if essay %}
+            <article class="card reveal rationale-card">
+                <h2>Rationale</h2>
+                <p class="essay">{{ essay }}</p>
+            </article>
+            {% endif %}
+
+            {% if analysis_id %}
+            <article class="card reveal rationale-card">
+                <h2>Feedback</h2>
+                <form method="post" action="/feedback" class="input-panel">
+                    <input type="hidden" name="analysis_id" value="{{ analysis_id }}">
+                    <label class="label" for="note">Was this useful?</label>
+                    <div class="theme-options">
+                        <button type="submit" class="theme-chip" name="vote" value="up">Helpful</button>
+                        <button type="submit" class="theme-chip" name="vote" value="down">Needs Work</button>
+                    </div>
+                    <div class="input-stack" style="margin-top:10px;">
+                        <input id="note" name="note" type="text" maxlength="600" placeholder="Optional note">
+                    </div>
+                </form>
+            </article>
+            {% endif %}
+        </section>
         {% endif %}
-    </div>
-    {% endif %}
 
-    {% if essay %}
-    <div class="glass-card">
-        <h2>AI Reasoning Core</h2>
-        <p class="essay">{{ essay }}</p>
-    </div>
-    {% endif %}
-</div>
+        {% if history %}
+        <section class="results-grid">
+            <article class="card reveal rationale-card">
+                <h2>Recent Analyses</h2>
+                {% for item in history %}
+                <p>
+                    <strong>#{{ item.id }}</strong>
+                    {{ item.created_at[:19] }} |
+                    {{ item.source }} |
+                    {{ item.extraction_kind }} |
+                    L {{ item.left_pct }} / C {{ item.center_pct }} / R {{ item.right_pct }}
+                </p>
+                <p class="input-link">{{ item.input_url }}</p>
+                {% endfor %}
+            </article>
+        </section>
+        {% endif %}
 
-<script>
-    document.querySelectorAll('.fill').forEach(bar => {
-        const value = bar.getAttribute('data-width');
-        if (value !== null) {
-            bar.style.width = value + '%';
-        }
-    });
-</script>
+        <section>
+            <p class="input-link">
+                <a href="/about">About Methodology</a> |
+                <a href="/privacy">Privacy</a> |
+                <a href="/terms">Terms</a>
+            </p>
+        </section>
+    </main>
 
+    <script src="/static/js/app.js?v=20260216-editorial-3"></script>
 </body>
 </html>
+
+
+
+
